@@ -1,0 +1,457 @@
+{
+  "name": "microsoft-bing",
+  "version": "1.0.0",
+  "label": "Microsoft Bing",
+  "description": "Microsoft Bing is a web search engine it provides a standard web search, as well as specialized searches for images, videos, shopping, news, maps, and other categories.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "help_online": "",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "category": "Miscellaneous",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "description": "Specify the URL of the Microsoft Bing server to connect and perform automated operations.",
+        "type": "text",
+        "name": "server_url",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "value": "https://api.bing.microsoft.com",
+        "tooltip": "Specify the URL of the Microsoft Bing server to connect and perform automated operations."
+      },
+      {
+        "title": "API Key",
+        "description": "Specify the API key to access the endpoint to which you will connect and perform the automated operations",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "api_key",
+        "tooltip": "Specify the API key to access the endpoint to which you will connect and perform the automated operations"
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True.",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "web_search",
+      "title": "Web Search",
+      "description": "Searches a query on web based on the query and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "web_search",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Search Query",
+          "description": "Specify the search query based on which you want to retrieve details from Microsoft Bing.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "q",
+          "tooltip": "Specify the search query based on which you want to retrieve details from Microsoft Bing."
+        },
+        {
+          "title": "Filter Search",
+          "description": "Specify the filter search based on which you want to retrieve details from Microsoft Bing.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "freshness",
+          "tooltip": "Specify the filter search based on which you want to retrieve details from Microsoft Bing. For eg. Day, Week, Month, 2019-02-04, or 2019-02-01..2019-05-30",
+          "placeholder": "For eg. Day, Week, Month, 2019-02-04, or 2019-02-01..2019-05-30"
+        },
+        {
+          "title": "Response Filter",
+          "description": "Select the one or more response filter based on which you want to retrieve details from Microsoft Bing. If you do not specify this parameter, the response includes all search answers for which there's relevant data. Possible values are Computation, Entities, Images, News, etc.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "name": "responseFilter",
+          "tooltip": "Select the one or more response filter based on which you want to retrieve details from Microsoft Bing. If you do not specify this parameter, the response includes all search answers for which there's relevant data. Possible values are Computation, Entities, Images, News, etc.",
+          "options": [
+            "Computation",
+            "Entities",
+            "Images",
+            "News",
+            "Places",
+            "RelatedSearches",
+            "SpellSuggestions",
+            "TimeZone",
+            "Translations",
+            "Videos",
+            "Webpages"
+          ]
+        },
+        {
+          "title": "Answer Count",
+          "description": "Specify the number of answers that you want the response to include, the answers that Bing returns are based on ranking.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "answerCount",
+          "tooltip": "Specify the number of answers that you want the response to include, the answers that Bing returns are based on ranking. For example, if Bing returns webpages, images, videos, and relatedSearches for a request and you set this parameter to two (2), the response includes webpages and images. If you included the responseFilter query parameter in the same request and set it to webpages and news, the response would include only webpages."
+        },
+        {
+          "title": "Promote",
+          "description": "Select the one or more promotes that you want the response to include regardless of their ranking. NOTE: Use only if you specify the Answer Count parameter.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "name": "promote",
+          "tooltip": "NOTE: Use only if you specify the Answer Count parameter. For example, if you set answerCount) to two (2) so Bing returns the top two ranked answers, but you also want the response to include news, you'd set promote to news. If the top ranked answers are webpages, images, videos, and relatedSearches, the response includes webpages and images because news is not a ranked answer. But if you set promote to video, Bing would promote the video answer into the response and return webpages, images, and videos.",
+          "options": [
+            "Computation",
+            "Entities",
+            "Images",
+            "News",
+            "RelatedSearches",
+            "SpellSuggestions",
+            "TimeZone",
+            "Videos",
+            "Webpages"
+          ]
+        },
+        {
+          "title": "Safe Search",
+          "description": "Select the safe search based on which you want to retrieve details from Microsoft Bing. Possible values are Off, Moderate, or Strict. By default, it set as Moderate.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "safeSearch",
+          "value": "Moderate",
+          "tooltip": "Note: For video results, if safeSearch is set to Off, Bing ignores it and uses Moderate.\n If the request comes from a market that Bing's adult policy requires that safeSearch be set to Strict, Bing ignores the safeSearch value and uses Strict. \nf you use the site: query operator, there is a chance that the response may contain adult content regardless of what the safeSearch query parameter is set to. Use site: only if you are aware of the content on the site and your scenario supports the possibility of adult content.",
+          "options": [
+            "Off",
+            "Moderate",
+            "Strict"
+          ]
+        },
+        {
+          "title": "Text Decorations",
+          "description": "Select the option if you want to determines whether display strings in the results should contain decoration markers such as hit highlighting characters. By default, it set as \"False\".",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "name": "textDecorations",
+          "value": false,
+          "tooltip": "Select the option if you want to determines whether display strings in the results should contain decoration markers such as hit highlighting characters. By default, it set as \"False\"."
+        },
+        {
+          "title": "Supported Languages",
+          "description": "Select the language to use for user interface strings. You may specify the language using either a 2-letter or 4-letter code. Using 4-letter codes is preferred.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "setLang",
+          "tooltip": "Select the language to use for user interface strings. You may specify the language using either a 2-letter or 4-letter code. Using 4-letter codes is preferred.",
+          "options": [
+            "Arabic",
+            "Basque",
+            "Bengali",
+            "Bulgarian",
+            "Catalan",
+            "Chinese (Simplified)",
+            "Chinese (Traditional)",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "English",
+            "English-United Kingdom",
+            "Estonian",
+            "Finnish",
+            "French",
+            "Galician",
+            "German",
+            "Gujarati",
+            "Hebrew",
+            "Hindi",
+            "Hungarian",
+            "Icelandic",
+            "Italian",
+            "Japanese",
+            "Kannada",
+            "Korean",
+            "Latvian",
+            "Lithuanian",
+            "Malay",
+            "Malayalam",
+            "Marathi",
+            "Norwegian (Bokmål)",
+            "Polish",
+            "Portuguese (Brazil)",
+            "Portuguese (Portugal)",
+            "Punjabi",
+            "Romanian",
+            "Russian",
+            "Serbian (Cyrylic)",
+            "Slovak",
+            "Slovenian",
+            "Spanish",
+            "Swedish",
+            "Tamil",
+            "Telugu",
+            "Thai",
+            "Turkish",
+            "Ukrainian",
+            "Vietnamese"
+          ]
+        },
+        {
+          "title": "Country Code",
+          "description": "Select the one or more country code where the results come from. It uses the first supported language it finds in the specified languages and combines it with the country code to determine the market to return results for.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "name": "cc",
+          "tooltip": "NOTE: If the languages list does not include a supported language, Bing finds the closest language and market that supports the request. Or, Bing may use an aggregated or default market for the results.",
+          "options": [
+            "Argentina",
+            "Australia",
+            "Austria",
+            "Belgium",
+            "Brazil",
+            "Canada",
+            "Chile",
+            "Denmark",
+            "Finland",
+            "France",
+            "Germany",
+            "Hong Kong SAR",
+            "India",
+            "Indonesia",
+            "Italy",
+            "Japan",
+            "Korea",
+            "Malaysia",
+            "Mexico",
+            "Netherlands",
+            "New Zealand",
+            "Norway",
+            "People's Republic of China",
+            "Poland",
+            "Portugal",
+            "Republic of the Philippines",
+            "Russia",
+            "Saudi Arabia",
+            "South Africa",
+            "Spain",
+            "Sweden",
+            "Switzerland",
+            "Taiwan",
+            "Turkey",
+            "United Kingdom",
+            "United States"
+          ]
+        },
+        {
+          "title": "Count",
+          "description": "Specify the maximum count of records that you want this operation to fetch from Microsoft Bing. By default, this option is set to 10, and you can set a maximum value of 50.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "tooltip": "Count parameter affects only webpage results and has no impact on the number of results that Bing returns for other answers in the search results such as images or videos. By default, this option is set to 10, and you can set a maximum value of 50.",
+          "name": "count",
+          "value": 10
+        },
+        {
+          "title": "Offset",
+          "description": "Index of the first item to be returned by this operation. This parameter is useful for pagination and for getting a subset of items. By default, this is set as 0. For each subsequent page, increment offset by 10 (for example, 0, 10, 20). It is possible for multiple pages to include some overlap in results.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "tooltip": "Index of the first item to be returned by this operation. This parameter is useful for pagination and for getting a subset of items. By default, this is set as 0. For each subsequent page, increment offset by 10 (for example, 0, 10, 20). It is possible for multiple pages to include some overlap in results.",
+          "name": "offset"
+        },
+        {
+          "title": "Additional Fields",
+          "name": "additional_fields",
+          "type": "json",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "tooltip": "Additional fields, in the JSON format, based on which you want to retrieve details from Microsoft Bing.",
+          "description": "Additional fields, in the JSON format, based on which you want to retrieve details from Microsoft Bing."
+        }
+      ],
+      "output_schema": {
+        "_type": "",
+        "images": {
+          "id": "",
+          "value": [
+            {
+              "name": "",
+              "width": "",
+              "height": "",
+              "thumbnail": {
+                "width": "",
+                "height": ""
+              },
+              "contentUrl": "",
+              "contentSize": "",
+              "hostPageUrl": "",
+              "thumbnailUrl": "",
+              "webSearchUrl": "",
+              "datePublished": "",
+              "encodingFormat": "",
+              "hostPageDisplayUrl": ""
+            }
+          ],
+          "readLink": "",
+          "webSearchUrl": "",
+          "isFamilyFriendly": ""
+        },
+        "videos": {
+          "id": "",
+          "value": [
+            {
+              "name": "",
+              "width": "",
+              "height": "",
+              "creator": {
+                "name": ""
+              },
+              "duration": "",
+              "embedHtml": "",
+              "publisher": [
+                {
+                  "name": ""
+                }
+              ],
+              "thumbnail": {
+                "width": "",
+                "height": ""
+              },
+              "viewCount": "",
+              "contentUrl": "",
+              "description": "",
+              "hostPageUrl": "",
+              "isSuperfresh": "",
+              "thumbnailUrl": "",
+              "webSearchUrl": "",
+              "datePublished": "",
+              "encodingFormat": "",
+              "allowHttpsEmbed": "",
+              "allowMobileEmbed": "",
+              "hostPageDisplayUrl": "",
+              "motionThumbnailUrl": "",
+              "isAccessibleForFree": ""
+            }
+          ],
+          "readLink": "",
+          "scenario": "",
+          "webSearchUrl": "",
+          "isFamilyFriendly": ""
+        },
+        "entities": {
+          "value": [
+            {
+              "id": "",
+              "name": "",
+              "bingId": "",
+              "webSearchUrl": "",
+              "entityPresentationInfo": {
+                "entityScenario": "",
+                "entityTypeHints": [],
+                "entityTypeDisplayHint": ""
+              }
+            }
+          ]
+        },
+        "webPages": {
+          "value": [
+            {
+              "id": "",
+              "url": "",
+              "name": "",
+              "snippet": "",
+              "language": "",
+              "displayUrl": "",
+              "thumbnailUrl": "",
+              "isNavigational": "",
+              "dateLastCrawled": "",
+              "contractualRules": [
+                {
+                  "_type": "",
+                  "license": {
+                    "url": "",
+                    "name": ""
+                  },
+                  "licenseNotice": "",
+                  "targetPropertyName": "",
+                  "targetPropertyIndex": "",
+                  "mustBeCloseToContent": ""
+                }
+              ],
+              "isFamilyFriendly": ""
+            }
+          ],
+          "webSearchUrl": "",
+          "totalEstimatedMatches": ""
+        },
+        "queryContext": {
+          "originalQuery": ""
+        },
+        "rankingResponse": {
+          "sidebar": {
+            "items": [
+              {
+                "value": {
+                  "id": ""
+                },
+                "answerType": "",
+                "resultIndex": ""
+              }
+            ]
+          },
+          "mainline": {
+            "items": [
+              {
+                "value": {
+                  "id": ""
+                },
+                "answerType": "",
+                "resultIndex": ""
+              }
+            ]
+          }
+        },
+        "relatedSearches": {
+          "id": "",
+          "value": [
+            {
+              "text": "",
+              "displayText": "",
+              "webSearchUrl": ""
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
