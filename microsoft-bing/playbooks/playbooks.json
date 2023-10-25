@@ -1,0 +1,99 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "a0b52ed7-dbf8-414c-8017-ae42a2f4f696",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "82ebec20-cf27-49c5-8b86-684a995a3fa3",
+          "collection": "/api/3/workflow_collections/a0b52ed7-dbf8-414c-8017-ae42a2f4f696",
+          "steps": [
+            {
+              "uuid": "64368896-e129-4ce4-8bcc-453f4b9c1d3b",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "1387cad8-9459-4c21-a997-89e10b1925c1",
+              "@type": "WorkflowStep",
+              "name": "Web Search",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Microsoft Bing",
+                "config": "",
+                "params": {
+                  "q": "",
+                  "freshness": "",
+                  "responseFilter": "",
+                  "answerCount": "",
+                  "promote": "",
+                  "safeSearch": "Moderate",
+                  "textDecorations": "",
+                  "setLang": "",
+                  "cc": "",
+                  "count": 10,
+                  "offset": "",
+                  "additional_fields": ""
+                },
+                "version": "1.0.0",
+                "connector": "microsoft-bing",
+                "operation": "web_search",
+                "operationTitle": "Web Search"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Searches a query on web based on the query and other input parameters you have specified.",
+          "name": "Web Search",
+          "tag": "#Microsoft Bing",
+          "recordTags": [
+            "Microsoft",
+            "microsoft-bing"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/64368896-e129-4ce4-8bcc-453f4b9c1d3b",
+          "routes": [
+            {
+              "uuid": "9cd92e0c-3194-410f-8775-83a3e98011fa",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Web Search",
+              "sourceStep": "/api/3/workflow_steps/64368896-e129-4ce4-8bcc-453f4b9c1d3b",
+              "targetStep": "/api/3/workflow_steps/1387cad8-9459-4c21-a997-89e10b1925c1"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - Microsoft Bing - 1.0.0",
+      "description": "Microsoft Bing is a web search engine it provides a standard web search, as well as specialized searches for images, videos, shopping, news, maps, and other categories.",
+      "visible": true,
+      "recordTags": [
+        "Microsoft",
+        "microsoft-bing"
+      ]
+    }
+  ]
+}
