@@ -372,47 +372,106 @@
           "value": [
             {
               "id": "",
-              "name": "",
-              "bingId": "",
+              "contractualRules": [
+                {
+                  "_type": "",
+                  "targetPropertyName": "",
+                  "mustBeCloseToContent": "",
+                  "license": {
+                    "name": "",
+                    "url": ""
+                  },
+                  "licenseNotice": ""
+                }
+              ],
               "webSearchUrl": "",
+              "name": "",
+              "image": {
+                "name": "",
+                "thumbnailUrl": "",
+                "provider": [
+                  {
+                    "_type": "",
+                    "url": ""
+                  }
+                ],
+                "hostPageUrl": "",
+                "width": "",
+                "height": "",
+                "sourceWidth": "",
+                "sourceHeight": ""
+              },
+              "description": "",
               "entityPresentationInfo": {
                 "entityScenario": "",
                 "entityTypeHints": [],
                 "entityTypeDisplayHint": ""
-              }
+              },
+              "bingId": ""
             }
           ]
         },
         "webPages": {
+          "webSearchUrl": "",
+          "totalEstimatedMatches": "",
+          "someResultsRemoved": "",
           "value": [
             {
               "id": "",
-              "url": "",
               "name": "",
+              "url": "",
               "snippet": "",
-              "language": "",
-              "displayUrl": "",
+              "richFacts": [],
               "thumbnailUrl": "",
-              "isNavigational": "",
-              "dateLastCrawled": "",
+              "about": [
+                {
+                  "_type": "",
+                  "aggregateRating": {
+                    "ratingValue": "",
+                    "reviewCount": ""
+                  }
+                }
+              ],
               "contractualRules": [
                 {
                   "_type": "",
-                  "license": {
-                    "url": "",
-                    "name": ""
-                  },
-                  "licenseNotice": "",
                   "targetPropertyName": "",
-                  "targetPropertyIndex": "",
-                  "mustBeCloseToContent": ""
+                  "mustBeCloseToContent": "",
+                  "license": {
+                    "name": "",
+                    "url": ""
+                  },
+                  "licenseNotice": ""
                 }
               ],
-              "isFamilyFriendly": ""
+              "datePublished": "",
+              "datePublishedDisplayText": "",
+              "datePublishedFreshnessText": "",
+              "internalSearchSiteInfo": {
+                "domainName": "",
+                "siteSearchUrl": ""
+              },
+              "isFamilyFriendly": "",
+              "displayUrl": "",
+              "dateLastCrawled": "",
+              "primaryImageOfPage": {
+                "thumbnailUrl": "",
+                "width": "",
+                "height": "",
+                "imageId": ""
+              },
+              "cachedPageUrl": "",
+              "deepLinks": [
+                {
+                  "name": "",
+                  "url": "",
+                  "snippet": ""
+                }
+              ],
+              "language": "",
+              "isNavigational": ""
             }
-          ],
-          "webSearchUrl": "",
-          "totalEstimatedMatches": ""
+          ]
         },
         "queryContext": {
           "originalQuery": ""
