@@ -6,7 +6,7 @@
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/microsoft-bing/749/microsoft-bing-v1-0-0",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "category": "Miscellaneous",
@@ -25,13 +25,13 @@
       },
       {
         "title": "API Key",
-        "description": "Specify the API key to access the endpoint to which you will connect and perform the automated operations",
+        "description": "Specify the API key to access the endpoint to connect and perform automated operations.",
         "required": true,
         "editable": true,
         "visible": true,
         "type": "password",
         "name": "api_key",
-        "tooltip": "Specify the API key to access the endpoint to which you will connect and perform the automated operations"
+        "tooltip": "Specify the API key to access the endpoint to connect and perform automated operations."
       },
       {
         "title": "Verify SSL",
@@ -50,7 +50,7 @@
     {
       "operation": "web_search",
       "title": "Web Search",
-      "description": "Searches a query on web based on the query and other input parameters you have specified.",
+      "description": "Retrieves results of a search from Microsoft Bing based on the search query and filter parameters you have specified.",
       "category": "investigation",
       "annotation": "web_search",
       "enabled": true,
@@ -78,13 +78,13 @@
         },
         {
           "title": "Response Filter",
-          "description": "Select the one or more response filter based on which you want to retrieve details from Microsoft Bing. If you do not specify this parameter, the response includes all search answers for which there's relevant data. Possible values are Computation, Entities, Images, News, etc.",
+          "description": "Select one or more response filters based on which you want to retrieve results from Microsoft Bing. You can select one or more options from following options: Computation, Entities, Images, News, Places, RelatedSearches, SpellSuggestions, TimeZone, Translations, Videos, or Webpages. If you do not specify this parameter, the response includes all search answers for which there's relevant data.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "multiselect",
           "name": "responseFilter",
-          "tooltip": "Select the one or more response filter based on which you want to retrieve details from Microsoft Bing. If you do not specify this parameter, the response includes all search answers for which there's relevant data. Possible values are Computation, Entities, Images, News, etc.",
+          "tooltip": "Select one or more response filters based on which you want to retrieve results from Microsoft Bing. You can select one or more options from following options: Computation, Entities, Images, News, Places, RelatedSearches, SpellSuggestions, TimeZone, Translations, Videos, or Webpages. If you do not specify this parameter, the response includes all search answers for which there's relevant data.",
           "options": [
             "Computation",
             "Entities",
@@ -101,23 +101,23 @@
         },
         {
           "title": "Answer Count",
-          "description": "Specify the number of answers that you want the response to include, the answers that Bing returns are based on ranking.",
+          "description": "Specify the number of answers that you want the response to include; the answers that Bing returns are based on ranking.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "answerCount",
-          "tooltip": "Specify the number of answers that you want the response to include, the answers that Bing returns are based on ranking. For example, if Bing returns webpages, images, videos, and relatedSearches for a request and you set this parameter to two (2), the response includes webpages and images. If you included the responseFilter query parameter in the same request and set it to webpages and news, the response would include only webpages."
+          "tooltip": "Specify the number of answers that you want the response to include; the answers that Bing returns are based on ranking. For example, if Bing returns webpages, images, videos, and relatedSearches for a request and you set this parameter to two (2), the response includes webpages and images. If you included the responseFilter query parameter in the same request and set it to webpages and news, the response would include only webpages."
         },
         {
           "title": "Promote",
-          "description": "Select the one or more promotes that you want the response to include regardless of their ranking. NOTE: Use only if you specify the Answer Count parameter.",
+          "description": "Select one or more parameters that you want the response to include regardless of their ranking. You can select one or more options from following options: Computation, Entities, Images, News, Places, RelatedSearches, SpellSuggestions, TimeZone, Translations, Videos, or Webpages. NOTE: Use only if you specify the Answer Count parameter.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "multiselect",
           "name": "promote",
-          "tooltip": "NOTE: Use only if you specify the Answer Count parameter. For example, if you set answerCount) to two (2) so Bing returns the top two ranked answers, but you also want the response to include news, you'd set promote to news. If the top ranked answers are webpages, images, videos, and relatedSearches, the response includes webpages and images because news is not a ranked answer. But if you set promote to video, Bing would promote the video answer into the response and return webpages, images, and videos.",
+          "tooltip": "NOTE: Use only if you specify the Answer Count parameter. For example, if you set Answer Count to two (2) so Bing returns the top two ranked answers, but you also want the response to include news, you'd set promote to news. If the top ranked answers are webpages, images, videos, and relatedSearches, the response includes webpages and images because news is not a ranked answer. But if you set promote to video, Bing would promote the video answer into the response and return webpages, images, and videos.",
           "options": [
             "Computation",
             "Entities",
@@ -132,7 +132,7 @@
         },
         {
           "title": "Safe Search",
-          "description": "Select the safe search based on which you want to retrieve details from Microsoft Bing. Possible values are Off, Moderate, or Strict. By default, it set as Moderate.",
+          "description": "Select a value for safe search based on which to retrieve details from Microsoft Bing. You can select from the following options: Off, Moderate, or Strict. By default, it set to Moderate.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -148,18 +148,18 @@
         },
         {
           "title": "Text Decorations",
-          "description": "Select the option if you want to determines whether display strings in the results should contain decoration markers such as hit highlighting characters. By default, it set as \"False\".",
+          "description": "Select this option to return results containing decoration markers such as hit highlighting characters. By default, it set to False.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "checkbox",
           "name": "textDecorations",
           "value": false,
-          "tooltip": "Select the option if you want to determines whether display strings in the results should contain decoration markers such as hit highlighting characters. By default, it set as \"False\"."
+          "tooltip": "Select this option to return results containing decoration markers such as hit highlighting characters. By default, it set to False."
         },
         {
           "title": "Supported Languages",
-          "description": "Select the language to use for user interface strings. You may specify the language using either a 2-letter or 4-letter code. Using 4-letter codes is preferred.",
+          "description": "Select the language to use for user interface strings. For supported options, refer to https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/reference/market-codes#bing-supported-language-codes",
           "required": false,
           "editable": true,
           "visible": true,
@@ -221,7 +221,7 @@
         },
         {
           "title": "Country Code",
-          "description": "Select the one or more country code where the results come from. It uses the first supported language it finds in the specified languages and combines it with the country code to determine the market to return results for.",
+          "description": "Select one or more country codes from where to fetch the results. It uses the first supported language it finds in the specified languages and combines it with the country code to determine the market for which to return results.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -269,7 +269,7 @@
         },
         {
           "title": "Count",
-          "description": "Specify the maximum count of records that you want this operation to fetch from Microsoft Bing. By default, this option is set to 10, and you can set a maximum value of 50.",
+          "description": "Specify the count of records to fetch from Microsoft Bing. By default, this option is set to 10, and you can set a maximum value of 50.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -280,12 +280,12 @@
         },
         {
           "title": "Offset",
-          "description": "Index of the first item to be returned by this operation. This parameter is useful for pagination and for getting a subset of items. By default, this is set as 0. For each subsequent page, increment offset by 10 (for example, 0, 10, 20). It is possible for multiple pages to include some overlap in results.",
+          "description": "Specify the index of the first item to be returned by this operation. This parameter is useful for pagination and for getting a subset of items. By default, this is set to 0. For each subsequent page, increment offset by 10 (for example, 0, 10, 20). It is possible that multiple pages include some overlap in the results.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
-          "tooltip": "Index of the first item to be returned by this operation. This parameter is useful for pagination and for getting a subset of items. By default, this is set as 0. For each subsequent page, increment offset by 10 (for example, 0, 10, 20). It is possible for multiple pages to include some overlap in results.",
+          "tooltip": "Specify the index of the first item to be returned by this operation. This parameter is useful for pagination and for getting a subset of items. By default, this is set to 0. For each subsequent page, increment offset by 10 (for example, 0, 10, 20). It is possible that multiple pages include some overlap in the results.",
           "name": "offset"
         },
         {
@@ -295,8 +295,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Additional fields, in the JSON format, based on which you want to retrieve details from Microsoft Bing.",
-          "description": "Additional fields, in the JSON format, based on which you want to retrieve details from Microsoft Bing."
+          "tooltip": "Specify additional fields, in JSON format, based on which to retrieve results from Microsoft Bing.",
+          "description": "Specify additional fields, in JSON format, based on which to retrieve results from Microsoft Bing."
         }
       ],
       "output_schema": {
