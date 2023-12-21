@@ -111,7 +111,7 @@
         },
         {
           "title": "Promote",
-          "description": "Select one or more parameters that you want the response to include regardless of their ranking. You can select one or more options from following options: Computation, Entities, Images, News, Places, RelatedSearches, SpellSuggestions, TimeZone, Translations, Videos, or Webpages. NOTE: Use only if you specify the Answer Count parameter.",
+          "description": "Select one or more parameters that you want the response to include regardless of their ranking. You can select one or more options from following options: Computation, Entities, Images, News, RelatedSearches, SpellSuggestions, TimeZone, Videos, or Webpages. NOTE: Use only if you specify the Answer Count parameter.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -221,7 +221,7 @@
         },
         {
           "title": "Country Code",
-          "description": "Select one or more country codes from where to fetch the results. It uses the first supported language it finds in the specified languages and combines it with the country code to determine the market for which to return results.",
+          "description": "Select one or more country codes from where to fetch the results. It uses the first supported language it finds in the specified languages and combines it with the country code to determine the market for which to return results. For a list of possible values, see https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/reference/market-codes#country-codes.",
           "required": false,
           "editable": true,
           "visible": true,
